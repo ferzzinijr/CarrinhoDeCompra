@@ -23,7 +23,7 @@ namespace CarrinhoDeCompra.Components
             
             var produto = new Produto(nome, valor, quantidade);
             ProdutoComponent.Produtos.Add(produto);
-            Console.WriteLine("Produto criado com sucesso");
+            Console.WriteLine("\nProduto criado com sucesso");
             Console.WriteLine("Pressione qualquer tecla para voltar ao menu");
             Console.ReadLine();
         }
@@ -36,8 +36,6 @@ namespace CarrinhoDeCompra.Components
                 Console.WriteLine($"Id: {produto.Id}\nNome: {produto.Nome}\nValor: {produto.Valor}\nQuantidade em estoque: {produto.QuantidadeEstoque}");
                 Console.WriteLine();
             }
-
-            Console.ReadLine();
         }
 
         public static void EditarProduto()

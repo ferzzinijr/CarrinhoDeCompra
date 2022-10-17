@@ -28,10 +28,20 @@ namespace CarrinhoDeCompra.Components
                     {
                         Console.WriteLine("\nDigite a quantidade que deseja: ");
                         int qtde = Convert.ToInt16(Console.ReadLine());
+
+                        if (qtde > prod.QuantidadeEstoque)
+                        {
+                            Console.WriteLine("\nA quantidade desejada ultrapassa o valor em estoque do produto");
+                            Console.WriteLine($"\nQuantidade em estoque: {prod.QuantidadeEstoque}");
+                            Console.ReadLine();
+                            return;
+                        }
+
                         var pedidoItem = new PedidoItem(prod.Id, prod.Nome, prod.Valor, qtde);
                         pedido.ValorTotal += qtde * prod.Valor;
                         pedido.Produtos.Add(pedidoItem);
                         PedidoComponent.Pedidos.Add(pedido);
+                        prod.AtualizaQuantidadeEstoque(qtde);
                         Console.WriteLine("\nProduto adicionado com sucesso");
                         Console.ReadLine();
                         break;
@@ -67,9 +77,12 @@ namespace CarrinhoDeCompra.Components
                         Console.WriteLine($"Id: {produto.Id}\nNome: {produto.Nome}\nValor unitário: {produto.Valor:f2}");
                         Console.WriteLine($"Valor Total: {pedido.ValorTotal:f2}");
                         Console.ReadLine();
+                        return;
                     }
                 }
             }
+            Console.WriteLine("\nRG não encontrado");
+            Console.ReadLine();
         }
 
         public static void ListarTodosPedidos()

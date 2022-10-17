@@ -29,6 +29,11 @@ namespace CarrinhoDeCompra.Models
             Console.Clear();
             Console.WriteLine("Digite o novo nome: ");
             string nome = Console.ReadLine();
+            if (nome == "" || nome == null)
+            {
+                Console.WriteLine("Nome inválido");
+                return;
+            }
             Nome = nome;
             Console.WriteLine("Nome alterado com sucesso");
         }
@@ -49,6 +54,11 @@ namespace CarrinhoDeCompra.Models
             int estoque = Convert.ToInt32(Console.ReadLine());
             QuantidadeEstoque = estoque;
             Console.WriteLine("Quantidade em estoque alterado com sucesso");
+        }
+
+        public void AtualizaQuantidadeEstoque(int qtde)
+        {
+            QuantidadeEstoque -= qtde;
         }
     }
 }

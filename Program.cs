@@ -32,6 +32,7 @@ namespace CarrinhoDeCompra
                         break;
                     case 2:
                         ProdutoComponent.ListarProdutos();
+                        Console.ReadLine();
                         break;
                     case 3:
                         ProdutoComponent.EditarProduto();
