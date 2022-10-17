@@ -22,7 +22,7 @@ namespace CarrinhoDeCompra.Components
                 Console.WriteLine("\nDigite o id do item que deseja adicionar: ");
                 string id = Console.ReadLine();
 
-                foreach (var prod in ProdutoComponent._produtos)
+                foreach (var prod in ProdutoComponent.Produtos)
                 {
                     if (prod.Id.ToString() == id)
                     {

@@ -7,7 +7,7 @@ namespace CarrinhoDeCompra.Components
 {
     public class ProdutoComponent
     {
-        public static List<Produto> _produtos = new List<Produto>();
+        public static List<Produto> Produtos = new List<Produto>();
 
 
         public static void AdicionarProduto()
@@ -22,7 +22,7 @@ namespace CarrinhoDeCompra.Components
 
             
             var produto = new Produto(nome, valor, quantidade);
-            ProdutoComponent._produtos.Add(produto);
+            ProdutoComponent.Produtos.Add(produto);
             Console.WriteLine("Produto criado com sucesso");
             Console.WriteLine("Pressione qualquer tecla para voltar ao menu");
             Console.ReadLine();
@@ -31,7 +31,7 @@ namespace CarrinhoDeCompra.Components
         public static void ListarProdutos()
         {
             Console.Clear();
-            foreach (var produto in _produtos)
+            foreach (var produto in Produtos)
             {
                 Console.WriteLine($"Id: {produto.Id}\nNome: {produto.Nome}\nValor: {produto.Valor}\nQuantidade em estoque: {produto.QuantidadeEstoque}");
                 Console.WriteLine();
@@ -47,7 +47,7 @@ namespace CarrinhoDeCompra.Components
             Console.WriteLine("Digite o id do produto que deseja alterar: \n");
             string id = Console.ReadLine();
             var produto = new Produto();
-            foreach (var prod in _produtos)
+            foreach (var prod in Produtos)
             {
                 if (prod.Id.ToString() == id)
                 {
@@ -96,12 +96,12 @@ namespace CarrinhoDeCompra.Components
             Console.WriteLine("Digite o id do produto que deseja excluir: \n");
             string id = Console.ReadLine();
             var produto = new Produto();
-            foreach (var prod in _produtos)
+            foreach (var prod in Produtos)
             {
                 if (prod.Id.ToString() == id)
                 {
                     produto = prod;
-                    _produtos.Remove(produto);
+                    Produtos.Remove(produto);
                     Console.WriteLine("Produto excluido com sucesso");
                     Console.WriteLine("\nPressione qualquer tecla para voltar ao menu");
                     Console.ReadLine();
