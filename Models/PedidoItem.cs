@@ -6,22 +6,22 @@ namespace CarrinhoDeCompra.Models
 {
     public class PedidoItem
     {
-        public Guid Id { get; private set; }
+        public Guid Id { get; set; }
         public string Nome { get; private set; }
         public decimal Valor { get; private set; }
-        public int QuantidadeEstoque { get; private set; }
+        public int Quantidade{ get; private set; }
 
         public PedidoItem()
         {
 
         }
 
-        public PedidoItem(Guid id, string nome, decimal valor, int quantidadeEstoque)
+        public PedidoItem(Guid id, string nome, decimal valor, int quantidade)
         {
             Id = id;
             Nome = nome;
             Valor = valor;
-            QuantidadeEstoque = quantidadeEstoque;
+            Quantidade = quantidade;
         }
     }
 }

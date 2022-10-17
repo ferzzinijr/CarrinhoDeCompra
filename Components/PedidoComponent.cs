@@ -21,28 +21,27 @@ namespace CarrinhoDeCompra.Components
                 ProdutoComponent.ListarProdutos();
                 Console.WriteLine("\nDigite o id do item que deseja adicionar: ");
                 string id = Console.ReadLine();
-                var produto = new Produto();
 
                 foreach (var prod in ProdutoComponent._produtos)
                 {
                     if (prod.Id.ToString() == id)
                     {
-                        produto = prod;
                         Console.WriteLine("\nDigite a quantidade que deseja: ");
                         int qtde = Convert.ToInt16(Console.ReadLine());
+                        var pedidoItem = new PedidoItem(prod.Id, prod.Nome, prod.Valor, qtde);
                         pedido.ValorTotal += qtde * prod.Valor;
-                        pedido.Produtos.Add(prod);
+                        pedido.Produtos.Add(pedidoItem);
                         PedidoComponent.Pedidos.Add(pedido);
                         Console.WriteLine("\nProduto adicionado com sucesso");
                         Console.ReadLine();
                         break;
                     }
-                }
-                if (produto.Id == Guid.Empty)
-                {
-                    Console.WriteLine("\nProduto não existente");
-                    Console.WriteLine("\nPressione qualquer tecla para voltar ao menu");
-                    Console.ReadLine();
+                    else
+                    {
+                        Console.WriteLine("\nProduto não existente");
+                        Console.WriteLine("\nPressione qualquer tecla para voltar ao menu");
+                        Console.ReadLine();
+                    }
                 }
                 
                 Console.Clear();

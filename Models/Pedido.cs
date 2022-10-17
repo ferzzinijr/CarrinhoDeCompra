@@ -10,7 +10,7 @@ namespace CarrinhoDeCompra.Models
 
         public Guid PedidoId { get; private set; }
 
-        public List<Produto> Produtos = new List<Produto>();
+        public List<PedidoItem> Produtos = new List<PedidoItem>();
 
         public decimal ValorTotal { get; set; }
 
