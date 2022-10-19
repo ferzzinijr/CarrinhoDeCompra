@@ -7,8 +7,11 @@ namespace CarrinhoDeCompra.Models
     public class PedidoItem
     {
         public Guid Id { get; set; }
+
         public string Nome { get; private set; }
+
         public decimal Valor { get; private set; }
+
         public int Quantidade{ get; private set; }
 
         public PedidoItem()

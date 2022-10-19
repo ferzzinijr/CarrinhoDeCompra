@@ -7,8 +7,11 @@ namespace CarrinhoDeCompra.Models
     public class Produto
     {
         public Guid Id { get; private set; }
+
         public string Nome { get; private set; }
+
         public decimal Valor { get; private set; }
+
         public int QuantidadeEstoque { get; private set; }
 
         public Produto()
@@ -29,7 +32,7 @@ namespace CarrinhoDeCompra.Models
             Console.Clear();
             Console.WriteLine("Digite o novo nome: ");
             string nome = Console.ReadLine();
-            if (nome == "" || nome == null)
+            if (string.IsNullOrEmpty(nome))
             {
                 Console.WriteLine("Nome inválido");
                 return;
@@ -43,6 +46,11 @@ namespace CarrinhoDeCompra.Models
             Console.Clear();
             Console.WriteLine("Digite o novo valor: ");
             decimal valor = Convert.ToDecimal(Console.ReadLine());
+            if (valor <= 0)
+            {
+                Console.WriteLine("Valor inválido");
+                return;
+            }
             Valor = valor;
             Console.WriteLine("Valor alterado com sucesso");
         }
@@ -52,6 +60,11 @@ namespace CarrinhoDeCompra.Models
             Console.Clear();
             Console.WriteLine("Digite a nova quantidade em estoque: ");
             int estoque = Convert.ToInt32(Console.ReadLine());
+            if (estoque <= 0)
+            {
+                Console.WriteLine("Quantidade inválida");
+                return;
+            }
             QuantidadeEstoque = estoque;
             Console.WriteLine("Quantidade em estoque alterado com sucesso");
         }
